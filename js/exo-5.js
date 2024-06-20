@@ -4,13 +4,14 @@ export const exo5 = async () => {
     const response = await fetch(url);
     const result = await response.json();
     const pokemons =   result.results;
+    
     console.log(pokemons)
     const listePokemonUl = document.querySelector("#pokemons-list")
     let innerHTML = ""
    
 
 
-        for (let i = 0; i < pokemons.length; i++) { 
+        for (let i = 0 , l = pokemons.length ; i < l; i++) { 
           const pokemonindex = pokemons[i].url.split('/'); 
           innerHTML += `
            <li >
@@ -28,7 +29,7 @@ export const exo5 = async () => {
         const listeButtons = listePokemonUl.querySelectorAll('button');
         listeButtons.forEach(btn => {
           btn.addEventListener('click', (e) =>{
-            alert(btn.dataset.id)
+            console.log(e.target.dataset.id)
           })
         });
 }
